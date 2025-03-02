@@ -15,7 +15,7 @@ import PublicIcon from '@mui/icons-material/Public'
 import { getGlobalStats, LocationData } from '../services/globalStatsService'
 
 // Mapbox access token
-const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN || ''
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN || ''
 
 // Custom map style to ensure a Mercator-like appearance
 const mercatorStyleURL = 'mapbox://styles/mapbox/light-v10'

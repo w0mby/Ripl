@@ -23,7 +23,7 @@ import LegendToggleIcon from '@mui/icons-material/LegendToggle'
 import { getGlobalStats, LocationData } from '../services/globalStatsService'
 
 // Mapbox access token
-const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN || ''
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN || ''
 
 
 const MapPage: React.FC = () => {

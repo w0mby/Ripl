@@ -22,7 +22,7 @@ import { getQrCodeStats, getQrIdFromCode } from '../services/qrCodeService'
 import { QrCodeStats, ScanRecord } from '../types'
 
 // Mapbox access token
-const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN || ''
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN || ''
 
 const QrStats: React.FC = () => {
   // All state and hooks must be declared at the top

@@ -31,12 +31,12 @@ npm install
 3. Configure Firebase:
    - Create a Firebase project at https://console.firebase.google.com/
    - Enable Authentication (Email/Password) and Firestore
-   - Update the Firebase configuration in `src/firebase.ts` with your own project details
+   - Copy `.env.example` to `.env` and fill in your Firebase configuration details
 
 4. Set up Mapbox:
    - Create an account at https://www.mapbox.com/
    - Generate an access token
-   - Add your Mapbox token in the environment variables or appropriate configuration file
+   - Add your Mapbox token to the `.env` file in the VITE_MAPBOX_ACCESS_TOKEN field
 
 5. Run development server:
 ```
@@ -82,6 +82,28 @@ Run linting:
 ```
 npm run lint
 ```
+
+Run tests:
+```
+npm run test        # Run tests in watch mode
+npm run test:run    # Run all tests once
+npm run test:auth   # Run only auth context tests
+npm run test:coverage # Run tests with coverage report
+```
+
+## Testing Structure
+
+The project uses Vitest and React Testing Library for testing:
+
+- **Unit Tests**: Test individual functions and services
+- **Component Tests**: Verify component rendering and behavior
+- **Context Tests**: Ensure context providers work correctly
+
+Test files are located next to the code they test in `__tests__` directories:
+
+- `src/components/__tests__/` - Component tests
+- `src/contexts/__tests__/` - Context tests
+- `src/services/__tests__/` - Service tests
 
 ## License
 

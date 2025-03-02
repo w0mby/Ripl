@@ -10,16 +10,15 @@ import {
   updateProfile
 } from 'firebase/auth'
 
-// Your web app's Firebase configuration
-// Replace with your actual Firebase config
+// Firebase configuration from environment variables
 const firebaseConfig = {
-  apiKey: "AIzaSyAE-GxUUusu_W0-YgRv55f4Hl9CBZf3Uik",
-  authDomain: "orleans-39b46.firebaseapp.com",
-  projectId: "orleans-39b46",
-  storageBucket: "orleans-39b46.appspot.com",
-  messagingSenderId: "517321009158",
-  appId: "1:517321009158:web:307edcf00929f1b83f7b87",
-  measurementId: "G-KFSTT58ZH3"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 }
 
 // Initialize Firebase
