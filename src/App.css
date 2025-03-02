@@ -1,0 +1,668 @@
+/* Import first for CSS rules */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  /* Couleurs Principales */
+  --primary-color: #3F72AF;
+  --primary-light: #DBE2EF;
+  --primary-dark: #112D4E;
+  --secondary-color: #4CAF50;
+  --accent-color: #FF7E67;
+  
+  /* Nuances Complémentaires */
+  --gray-dark: #515151;
+  --gray-light: #F8F9FA;
+  
+  /* États des Boutons */
+  --success-color: #4CAF50;
+  --warning-color: #FFC107;
+  --info-color: #2196F3;
+  --danger-color: #FF5722;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.first-scan-message {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+  background-color: rgba(76, 110, 245, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.user-status-banner {
+  margin: 1rem auto 2rem;
+  padding: 1rem;
+  border-radius: 0 4px 4px 0;
+  max-width: 800px;
+  text-align: center;
+}
+
+.user-status-banner.returning {
+  background-color: rgba(255, 107, 107, 0.1);
+  border-left: 4px solid var(--secondary-color);
+}
+
+.user-status-banner.first-time {
+  background-color: rgba(76, 110, 245, 0.1);
+  border-left: 4px solid var(--primary-color);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-dark);
+  background-color: var(--gray-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--primary-dark);
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.caption {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+button, .button {
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 1200px;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-link {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--gray-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+main.content {
+  flex: 1;
+  padding: 2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+}
+
+/* Home page */
+.home-page {
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .home-page {
+    max-width: 100%;
+    padding: 3rem 1rem;
+  }
+}
+
+.home-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.home-page p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--gray-dark);
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+/* Buttons selon la charte */
+.cta-button.primary {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 4px;
+  transition: all 300ms ease-in-out;
+}
+
+.cta-button.primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button.secondary {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+  border-radius: 4px;
+  transition: all 300ms ease-in-out;
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(63, 114, 175, 0.05);
+  transform: translateY(-2px);
+}
+
+.cta-button.tertiary {
+  color: var(--primary-color);
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  transition: all 300ms ease-in-out;
+}
+
+.cta-button.tertiary:hover {
+  text-decoration: underline;
+}
+
+/* QR Generator */
+.qr-generator {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .qr-generator {
+    max-width: 800px;
+  }
+}
+
+.qr-generator h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.qr-generator p {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.qr-generator p.small-note {
+  font-size: 0.85rem;
+  color: var(--gray-dark);
+  font-style: italic;
+  margin-top: -1.5rem;
+  margin-bottom: 2rem;
+}
+
+.generate-btn {
+  display: block;
+  margin: 0 auto 2rem;
+  padding: 0.75rem 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.generate-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .qr-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.qr-code {
+  padding: 1rem;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.qr-info {
+  max-width: 400px;
+}
+
+.qr-info p {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.copy-btn {
+  padding: 0.5rem 1.5rem;
+  background-color: var(--gray-dark);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.copy-btn:hover {
+  background-color: #23272b;
+}
+
+/* QR Scanner */
+.qr-scanner {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .qr-scanner {
+    max-width: 600px;
+  }
+}
+
+.qr-scanner h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.loading p {
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+}
+
+.qr-scanner button {
+  padding: 0.5rem 1.5rem;
+  margin: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* QR Stats */
+.qr-stats {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .qr-stats {
+    max-width: 900px;
+  }
+}
+
+.qr-stats h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.stats-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-top: 2px solid var(--primary-color);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--gray-dark);
+}
+
+.map-container {
+  margin-bottom: 3rem;
+}
+
+.map-container h3 {
+  margin-bottom: 1rem;
+  color: var(--gray-dark);
+}
+
+.scan-history h3 {
+  margin-bottom: 1.5rem;
+  color: var(--gray-dark);
+}
+
+.scan-list {
+  list-style: none;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.scan-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.scan-item:last-child {
+  border-bottom: none;
+}
+
+.scan-date {
+  font-weight: 500;
+}
+
+.scan-location {
+  color: var(--gray-dark);
+}
+
+/* Enhanced Map Styling */
+.mapboxgl-popup-content {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  padding: 12px !important;
+}
+
+.mapboxgl-popup-close-button {
+  font-size: 16px;
+  color: #666;
+  padding: 4px;
+}
+
+/* Animation for location markers and attention elements */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+  }
+  50% {
+    transform: scale(1.01);
+    opacity: 0.9;
+    box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+  }
+}
+
+.marker-icon:hover {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Gradient text effect for headers */
+.gradient-text {
+  background: linear-gradient(90deg, #3F72AF, #4CAF50, #FF7E67);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Heart animation for kindness icons */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.25);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+.kindness-heart {
+  transition: color 0.3s ease;
+}
+
+.kindness-heart:hover {
+  animation: heartbeat 1.5s infinite;
+  color: var(--secondary-color) !important;
+}
+
+/* Global kindness map */
+.global-kindness-map {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Full-screen map for all screen sizes */
+.fullscreen-map {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  border-radius: 0;
+  height: 100vh !important;
+}
+
+.global-kindness-map::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0) 30%, rgba(114, 143, 249, 0.2) 100%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Home page map - Mercator-specific styles */
+.home-map {
+  /* Fixed aspect ratio helps with Mercator appearance */
+  aspect-ratio: 2/1;
+  overflow: hidden;
+}
+
+.home-map .mapboxgl-map {
+  /* Ensures proper rendering of Mercator projection */
+  background-color: #f5f5f5 !important; 
+}
+
+/* Custom style for markers on home page */
+.home-map .mapboxgl-marker {
+  will-change: transform;
+}
+
+/* Card hover effects */
+.kindness-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kindness-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Country list styling */
+.country-list-item {
+  transition: background-color 0.2s ease;
+}
+
+.country-list-item:hover {
+  background-color: rgba(76, 110, 245, 0.05);
+}
+
+/* Subtle background pattern */
+.pattern-bg {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Special animation for sharing CTA */
+@keyframes attention-pulse {
+  0% {
+    border-color: rgba(255, 152, 0, 0.7);
+    box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.4);
+  }
+  50% {
+    border-color: rgba(255, 152, 0, 1);
+    box-shadow: 0 0 0 10px rgba(255, 152, 0, 0);
+  }
+  100% {
+    border-color: rgba(255, 152, 0, 0.7);
+    box-shadow: 0 0 0 0 rgba(255, 152, 0, 0);
+  }
+}
+
+.sharing-cta {
+  animation: attention-pulse 2s infinite ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.sharing-cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
