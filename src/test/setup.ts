@@ -1,4 +1,4 @@
-import { expect, afterEach, vi } from 'vitest'
+import { afterEach, vi } from 'vitest'
 import { cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
@@ -59,7 +59,7 @@ vi.mock('mapbox-gl', () => ({
   })),
 }))
 
-// Mock react-map-gl 
+// Mock react-map-gl
 vi.mock('react-map-gl', () => ({
   Map: vi.fn().mockImplementation(({ children }) => {
     return { type: 'div', props: { 'data-testid': 'mock-map-gl', children } }

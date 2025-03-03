@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react'
 import ProtectedRoute from '../ProtectedRoute'
 import * as authContext from '../../contexts/AuthContext'
 import { MemoryRouter } from 'react-router-dom'
+import { User } from 'firebase/auth'
 
 // Create a mock for Navigate component
 const mockNavigate = vi.fn()
@@ -17,7 +18,7 @@ vi.mock('react-router-dom', async () => {
       state: null,
       key: 'default',
     }),
-    Navigate: (props) => {
+    Navigate: (props: { to: string; state?: unknown; replace?: boolean }) => {
       mockNavigate(props.to, props.state, props.replace)
       return null
     },
@@ -35,7 +36,21 @@ describe('ProtectedRoute Component', () => {
   it('renders children when user is authenticated', () => {
     // Mock authenticated user
     vi.spyOn(authContext, 'useAuth').mockReturnValue({
-      currentUser: { uid: '123', email: 'test@example.com' },
+      currentUser: { 
+        uid: '123', 
+        email: 'test@example.com',
+        emailVerified: false,
+        isAnonymous: false,
+        metadata: {},
+        providerData: [],
+        refreshToken: '',
+        tenantId: null,
+        delete: vi.fn(),
+        getIdToken: vi.fn(),
+        getIdTokenResult: vi.fn(),
+        reload: vi.fn(),
+        toJSON: vi.fn()
+      } as unknown as User,
       isLoading: false,
       signIn: vi.fn(),
       signUp: vi.fn(),
@@ -80,6 +95,6 @@ describe('ProtectedRoute Component', () => {
     
     // Navigate should be called with the right arguments
     expect(mockNavigate).toHaveBeenCalled()
-    expect(mockNavigate.mock.lastCall[0]).toBe('/login')
+    expect(mockNavigate.mock.lastCall?.[0]).toBe('/login')
   })
 })

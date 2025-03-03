@@ -1,9 +1,8 @@
-import React, { ReactElement } from 'react'
+import { ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { AuthProvider } from '../contexts/AuthContext'
 import userEvent from '@testing-library/user-event'
-import { vi } from 'vitest'
 
 // Basic render function for testing
 const customRender = (
@@ -13,7 +12,7 @@ const customRender = (
   const setup = userEvent.setup()
   return {
     user: setup,
-    ...render(ui, { 
+    ...render(ui, {
       wrapper: ({ children }) => (
         <MemoryRouter>
           <AuthProvider>
@@ -21,7 +20,7 @@ const customRender = (
           </AuthProvider>
         </MemoryRouter>
       ),
-      ...options 
+      ...options
     })
   }
 }

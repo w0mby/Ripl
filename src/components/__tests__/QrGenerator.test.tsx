@@ -4,6 +4,7 @@ import QrGenerator from '../QrGenerator'
 import * as qrCodeService from '../../services/qrCodeService'
 import * as authContext from '../../contexts/AuthContext'
 import { MemoryRouter } from 'react-router-dom'
+import { User } from 'firebase/auth'
 
 // Basic mocks needed for the component to render
 vi.mock('html2canvas', () => ({
@@ -27,7 +28,20 @@ describe('QrGenerator Component', () => {
     
     // Mock current user
     vi.spyOn(authContext, 'useAuth').mockReturnValue({
-      currentUser: { uid: 'test-user-id' },
+      currentUser: { 
+        uid: 'test-user-id',
+        emailVerified: false,
+        isAnonymous: false,
+        metadata: {},
+        providerData: [],
+        refreshToken: '',
+        tenantId: null,
+        delete: vi.fn(),
+        getIdToken: vi.fn(),
+        getIdTokenResult: vi.fn(),
+        reload: vi.fn(),
+        toJSON: vi.fn()
+      } as unknown as User,
       isLoading: false,
       signIn: vi.fn(),
       signUp: vi.fn(),

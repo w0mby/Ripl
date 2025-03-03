@@ -558,43 +558,7 @@ function App() {
                         position: 'relative'
                       }}>
                         <GlobalMap />
-                        <Box
-                          sx={{
-                            position: 'absolute',
-                            bottom: 20,
-                            left: 0,
-                            width: '100%',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            zIndex: 999
-                          }}
-                        >
-                          <Button
-                            variant="contained"
-                            component={Link}
-                            to="/create"
-                            sx={{
-                              px: 3,
-                              py: 1.5,
-                              borderRadius: 4,
-                              opacity: 0.95,
-                              bgcolor: '#4CAF50',
-                              color: 'white',
-                              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
-                              fontFamily: "'Roboto', sans-serif",
-                              fontWeight: 500,
-                              textTransform: 'none',
-                              '&:hover': {
-                                bgcolor: '#3d8c40',
-                                transform: 'translateY(-2px)',
-                                boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)'
-                              },
-                              transition: 'all 300ms ease-in-out'
-                            }}
-                          >
-                            Start Your Ripple
-                          </Button>
-                        </Box>
+                        {/* Call-to-action button removed from desktop version */}
                       </Box>
                     </Paper>
                   </Box>
@@ -622,7 +586,7 @@ function App() {
                           fontFamily: "'Montserrat', sans-serif"
                         }}
                       >
-                        Start Spreading Kindness
+                        Ripl.io Global Impact
                       </Typography>
 
                       <Typography
@@ -634,7 +598,7 @@ function App() {
                           fontFamily: "'Roboto', sans-serif"
                         }}
                       >
-                        Create a ripple of kindness that can reach across the globe. Each thank you connects hearts and builds community.
+                        Every colored point on our map represents a ripple of kindness. Join the movement and see your impact spread globally.
                       </Typography>
 
                       <Button
@@ -660,7 +624,7 @@ function App() {
                           transition: 'all 300ms ease-in-out'
                         }}
                       >
-                        Create Your Ripple
+                        Start Your Ripple
                       </Button>
                     </Paper>
                   </Box>

@@ -2,7 +2,6 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { AuthProvider, useAuth } from '../AuthContext'
-import { User } from 'firebase/auth'
 
 // Mock the firebase module
 vi.mock('../../firebase', () => ({
@@ -17,12 +16,11 @@ vi.mock('../../firebase', () => ({
 
 // Mock onAuthStateChanged to avoid async issues
 vi.mock('firebase/auth', () => ({
-  onAuthStateChanged: vi.fn((auth, callback) => {
+  onAuthStateChanged: vi.fn((_auth, callback) => {
     callback(null)
     return vi.fn() // Return unsubscribe
   }),
-  getAuth: vi.fn(),
-  User: vi.fn()
+  getAuth: vi.fn()
 }))
 
 // Test component that uses auth context

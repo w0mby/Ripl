@@ -1,8 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { getQrIdFromCode } from '../qrCodeService'
-import * as qrCodeService from '../qrCodeService'
 import { db } from '../../firebase'
-import { collection, doc, setDoc, query, where, getDocs } from 'firebase/firestore'
+import { collection, query, where, getDocs } from 'firebase/firestore'
 
 // Mock crypto
 vi.stubGlobal('crypto', {
@@ -34,7 +33,7 @@ describe('QrCodeService', () => {
   beforeEach(() => {
     vi.clearAllMocks()
   })
-  
+
   // Mock isCodeUnique and generateUniqueShortCode directly
   // instead of testing the actual generateQrCode function
   describe('getQrIdFromCode', () => {
@@ -43,7 +42,7 @@ describe('QrCodeService', () => {
       const mockQueryRef = {}
       vi.mocked(query).mockReturnValue(mockQueryRef as any)
       vi.mocked(where).mockReturnValue('where-clause' as any)
-      
+
       // Mock query result
       const mockQrDoc = {
         id: 'mock-qr-id',
@@ -53,29 +52,29 @@ describe('QrCodeService', () => {
         empty: false,
         docs: [mockQrDoc]
       } as any)
-      
+
       // Call the function
       const result = await getQrIdFromCode('ABC123')
-      
+
       // Verify correct calls were made
       expect(collection).toHaveBeenCalledWith(db, 'qrCodes')
       expect(where).toHaveBeenCalledWith('code', '==', 'ABC123')
       expect(query).toHaveBeenCalled()
-      
+
       // Check result
       expect(result).toBe('mock-qr-id')
     })
-    
+
     it('returns null when no QR code matches the provided code', async () => {
       // Mock empty query result
       vi.mocked(getDocs).mockResolvedValue({
         empty: true,
         docs: []
       } as any)
-      
+
       // Call the function
       const result = await getQrIdFromCode('INVALID')
-      
+
       // Check result
       expect(result).toBeNull()
     })
